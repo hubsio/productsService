@@ -13,78 +13,11 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
               - column:
-                  name: NAME
-                  type: varchar(255)
-              - column:
-                  name: PRICE
-                  type: numeric(10, 2)
-              - column:
-                  name: TYPE
-                  type: varchar(50)
-              - column:
                   name: COLOR
                   type: varchar(50)
               - column:
                   name: BATTERY_CAPACITY
                   type: int
-              - column:
-                  name: ADDITIONAL_ACCESSORIES
-                  type: varchar(255)
-
-  - changeSet:
-      id: 2
-      author: Hubert
-      changes:
-        - createTable:
-            tableName: COMPUTER
-            columns:
-              - column:
-                  name: ID
-                  type: bigint
-                  autoIncrement: true
-                  constraints:
-                    primaryKey: true
-              - column:
-                  name: NAME
-                  type: varchar(255)
-              - column:
-                  name: PRICE
-                  type: numeric(10, 2)
-              - column:
-                  name: TYPE
-                  type: varchar(50)
-              - column:
-                  name: PROCESSOR
-                  type: varchar(100)
-              - column:
-                  name: RAM
-                  type: int
-              - column:
-                  name: ADDITIONAL_ACCESSORIES
-                  type: varchar(255)
-
-  - changeSet:
-      id: 3
-      author: Hubert
-      changes:
-        - createTable:
-            tableName: ELECTRONIC
-            columns:
-              - column:
-                  name: ID
-                  type: bigint
-                  autoIncrement: true
-                  constraints:
-                    primaryKey: true
-              - column:
-                  name: NAME
-                  type: varchar(255)
-              - column:
-                  name: PRICE
-                  type: numeric(10, 2)
-              - column:
-                  name: TYPE
-                  type: varchar(50)
               - column:
                   name: ADDITIONAL_ACCESSORIES
                   type: varchar(255)

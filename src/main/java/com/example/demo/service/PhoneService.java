@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -19,11 +18,8 @@ public class PhoneService {
     }
 
     public Phone getPhoneById(Long phoneId) {
-        Optional<Phone> phone = phoneRepository.findById(phoneId);
-        if (phone.isEmpty()) {
-            throw new RuntimeException("Phone not found");
-        }
-        return phone.get();
+        return phoneRepository.findById(phoneId)
+                .orElseThrow(() -> new RuntimeException("Phone not found"));
     }
 
     @Transactional
@@ -31,38 +27,32 @@ public class PhoneService {
         if (phone.getId() != null && phoneRepository.existsById(phone.getId())) {
             throw new RuntimeException("Phone with this ID already exists");
         }
-
         return phoneRepository.save(phone);
     }
 
     @Transactional
     public Phone updatePhone(Long phoneId, Phone updatedPhone) {
-        Optional<Phone> existingPhone = phoneRepository.findById(phoneId);
-        if (existingPhone.isEmpty()) {
-            throw new RuntimeException("Phone with given ID not found");
-        }
+        Phone existingPhone = phoneRepository.findById(phoneId)
+                .orElseThrow(() -> new RuntimeException("Phone with given ID not found"));
 
-        Phone phone = existingPhone.get();
         if (updatedPhone.getName() == null || updatedPhone.getPrice() == null) {
             throw new IllegalArgumentException("Phone data cannot be null");
         }
 
-        phone.setName(updatedPhone.getName());
-        phone.setPrice(updatedPhone.getPrice());
-        phone.setColor(updatedPhone.getColor());
-        phone.setBatteryCapacity(updatedPhone.getBatteryCapacity());
-        phone.setAdditionalAccessories(updatedPhone.getAdditionalAccessories());
+        existingPhone.setName(updatedPhone.getName());
+        existingPhone.setPrice(updatedPhone.getPrice());
+        existingPhone.setColor(updatedPhone.getColor());
+        existingPhone.setBatteryCapacity(updatedPhone.getBatteryCapacity());
+        existingPhone.setAdditionalAccessories(updatedPhone.getAdditionalAccessories());
+        existingPhone.setAdditionalAccessories(updatedPhone.getAdditionalAccessories());
 
-        return phoneRepository.save(phone);
+        return phoneRepository.save(existingPhone);
     }
 
     @Transactional
     public void deletePhone(Long phoneId) {
-        Optional<Phone> phone = phoneRepository.findById(phoneId);
-        if (phone.isEmpty()) {
-            throw new RuntimeException("Phone not found");
-        }
-
-        phoneRepository.delete(phone.get());
+        Phone phone = phoneRepository.findById(phoneId)
+                .orElseThrow(() -> new RuntimeException("Phone not found"));
+        phoneRepository.delete(phone);
     }
 }
