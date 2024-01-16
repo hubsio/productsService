@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -14,6 +16,6 @@ import lombok.Setter;
 @Table(name = "electronic")
 @PrimaryKeyJoinColumn(name = "electronics_id")
 public class Electronic extends Product {
-    @Column(name = "additional_accessories")
-    private String additionalAccessories;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<Accessory> accessories;
 }

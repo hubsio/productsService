@@ -13,6 +13,4 @@ import lombok.*;
 public class Computer extends Product {
     private String processor;
     private int ram;
-    @Column(name = "additional_accessories")
-    private String additionalAccessories;
 }

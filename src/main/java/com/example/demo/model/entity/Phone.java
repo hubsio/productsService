@@ -13,6 +13,4 @@ import lombok.*;
 public class Phone extends Product {
     private String color;
     private int batteryCapacity;
-    @Column(name = "additional_accessories")
-    private String additionalAccessories;
 }

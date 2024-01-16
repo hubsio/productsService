@@ -55,7 +55,6 @@ public class ElectronicService {
 
         electronic.setName(updatedElectronic.getName());
         electronic.setPrice(updatedElectronic.getPrice());
-        electronic.setAdditionalAccessories(updatedElectronic.getAdditionalAccessories());
 
         log.info("Updating electronic with ID {}: {}", electronicId, existingElectronic);
         return electronicRepository.save(electronic);

@@ -50,8 +50,6 @@ public class PhoneService {
         existingPhone.setPrice(updatedPhone.getPrice());
         existingPhone.setColor(updatedPhone.getColor());
         existingPhone.setBatteryCapacity(updatedPhone.getBatteryCapacity());
-        existingPhone.setAdditionalAccessories(updatedPhone.getAdditionalAccessories());
-        existingPhone.setAdditionalAccessories(updatedPhone.getAdditionalAccessories());
 
         log.info("Updating phone with ID {}: {}", phoneId, existingPhone);
         return phoneRepository.save(existingPhone);

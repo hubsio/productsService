@@ -57,7 +57,6 @@ public class ComputerService {
         computer.setPrice(updatedComputer.getPrice());
         computer.setProcessor(updatedComputer.getProcessor());
         computer.setRam(updatedComputer.getRam());
-        computer.setAdditionalAccessories(updatedComputer.getAdditionalAccessories());
 
         log.info("Updating computer with ID {}: {}", computerId, existingComputer);
         return computerRepository.save(computer);
