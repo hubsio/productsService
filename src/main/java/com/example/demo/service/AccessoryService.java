@@ -24,4 +24,9 @@ public class AccessoryService {
     public Accessory createAccessory(Accessory accessory) {
         return accessoryRepository.save(accessory);
     }
+
+    public Accessory getAccessoryById(Long id) {
+        return accessoryRepository.findById(id)
+                .orElseThrow(() -> new com.example.demo.exception.EntityNotFoundException("Product not found"));
+    }
 }

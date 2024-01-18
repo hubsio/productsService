@@ -20,4 +20,9 @@ public class AccessoryController {
     public Accessory addAccessory(@RequestBody Accessory accessory) {
         return accessoryService.createAccessory(accessory);
     }
+
+    @GetMapping("/{accessoryId}")
+    public Long getAccessoryById(@PathVariable Long accessoryId) {
+        return accessoryService.getAccessoryById(accessoryId).getId();
+    }
 }
