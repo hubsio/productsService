@@ -22,8 +22,4 @@ public class Product {
     private BigDecimal price;
     @Column(name = "product_type")
     private String type;
-
-    @JsonManagedReference
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Accessory> accessories = new ArrayList<>();
 }
