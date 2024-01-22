@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.entity.Product;
+import com.example.demo.model.entity.dto.ProductInfoDTO;
+import com.example.demo.model.entity.dto.ProductDTO;
 import com.example.demo.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,7 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("/{productId}")
-    public Long getProductById(@PathVariable Long productId) {
-        return productService.getProductById(productId).getId();
+    public ProductInfoDTO getProductInfo(@PathVariable Long productId) {
+        return productService.getProductInfo(productId);
     }
 }

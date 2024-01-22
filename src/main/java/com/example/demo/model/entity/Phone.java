@@ -8,11 +8,8 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "phone")
 @PrimaryKeyJoinColumn(name = "phone_id")
 public class Phone extends Product {
     private String color;
     private int batteryCapacity;
-    @Column(name = "additional_accessories")
-    private String additionalAccessories;
 }

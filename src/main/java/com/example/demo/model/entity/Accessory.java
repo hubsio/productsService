@@ -11,9 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "electronic")
-@PrimaryKeyJoinColumn(name = "electronics_id")
-public class Electronic extends Product {
-    @Column(name = "additional_accessories")
-    private String additionalAccessories;
+@PrimaryKeyJoinColumn(name = "computer_id")
+public class Accessory extends Product {
+    private String description;
 }

@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
+import com.example.demo.dtoConfig.EditPhoneCommandDTO;
 import com.example.demo.model.entity.Phone;
+import com.example.demo.model.entity.dto.PhoneDTO;
 import com.example.demo.service.PhoneService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -14,23 +16,23 @@ public class PhoneController {
     private final PhoneService phoneService;
 
     @GetMapping
-    public List<Phone> getAllPhones() {
+    public List<PhoneDTO> getAllPhones() {
         return phoneService.getAllPhones();
     }
 
     @GetMapping("/{id}")
-    public Phone getPhoneById(@PathVariable Long id) {
+    public PhoneDTO getPhoneById(@PathVariable Long id) {
         return phoneService.getPhoneById(id);
     }
 
     @PostMapping
-    public Phone createPhone(@RequestBody Phone phone) {
-        return phoneService.createPhone(phone);
+    public PhoneDTO createPhone(@RequestBody PhoneDTO phoneDTO) {
+        return phoneService.createPhone(phoneDTO);
     }
 
     @PutMapping("/{id}")
-    public Phone updatePhone(@PathVariable Long id, @RequestBody Phone phone) {
-        return phoneService.updatePhone(id, phone);
+    public PhoneDTO updatePhone(@PathVariable Long id, @RequestBody EditPhoneCommandDTO editedPhoneDTO) {
+        return phoneService.updatePhone(id, editedPhoneDTO);
     }
 
     @DeleteMapping("/{id}")
